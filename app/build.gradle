@@ -1,0 +1,82 @@
+def ext = rootProject.ext
+apply plugin: 'com.android.application'
+apply plugin: 'com.alibaba.arouter'
+apply plugin: 'org.greenrobot.greendao'
+
+greendao {
+    schemaVersion ext.android['dbVersion']
+    daoPackage ext.android['dbPackage']
+}
+
+def applicationVersionCode = getCurrentVersionCode()
+def applicationVersionName = getCurrentVersionName()
+
+android {
+    compileSdkVersion ext.android["compileSdkVersion"]
+    defaultConfig {
+        applicationId ext.android["applicationId"]
+        minSdkVersion ext.android["minSdkVersion"]
+        targetSdkVersion ext.android["targetSdkVersion"]
+        versionCode applicationVersionCode
+        versionName applicationVersionName
+        multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // 生成的文档路径 : build/generated/source/apt/(debug or release)/com/alibaba/android/arouter/docs/arouter-map-of-${moduleName}.json
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(path: ':base')
+    annotationProcessor ext.dependencies['arouter-compiler']
+    annotationProcessor project(path: ':annotationCompiler')
+
+    if (!ext.usercenter['isApplication']) {
+        implementation project(path: ':user:user_core')
+    }
+}
+
+def getCurrentVersionName() {
+    def majorCode = rootProject.ext.android.majorCode
+    def middleCode = rootProject.ext.android.middleCode
+    def minorCode = rootProject.ext.android.minorCode
+    def versionName = majorCode + "." + middleCode + "." + minorCode
+    return versionName
+}
+
+def getCurrentVersionCode() {
+    def majorCode = rootProject.ext.android.majorCode
+    def middleCode = rootProject.ext.android.middleCode
+    def minorCode = rootProject.ext.android.minorCode
+    StringBuilder builder = new StringBuilder()
+    builder.append(majorCode).append(convert(middleCode, 2)).append(convert(minorCode, 2))
+    return builder.toString().toInteger()
+}
+
+def convert(def target, def size) {
+    def length = target.toString().length()
+    if (size < 1) {
+        return target
+    }
+    if (length < size) {
+        String format = "%" + size + "d"
+        return String.format(format, target).replace(" ", "0")
+    } else {
+        return target
+    }
+}

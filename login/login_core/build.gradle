@@ -1,0 +1,61 @@
+def ext = rootProject.ext
+if (ext.login['isApplication']) {
+    apply plugin: 'com.android.application'
+    apply plugin: 'com.alibaba.arouter'
+} else {
+    apply plugin: 'com.android.library'
+}
+
+android {
+    compileSdkVersion ext.android["compileSdkVersion"]
+
+    defaultConfig {
+        if (ext.login['isApplication']) {
+            applicationId ext.login['applicationId']
+        }
+        minSdkVersion ext.android["minSdkVersion"]
+        targetSdkVersion ext.android["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // 生成的文档路径 : build/generated/source/apt/(debug or release)/com/alibaba/android/arouter/docs/arouter-map-of-${moduleName}.json
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    resourcePrefix "login_"
+
+    sourceSets {
+        main {
+            if (ext.login['isApplication']) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
+            }
+        }
+    }
+
+    packagingOptions {
+        exclude 'META-INF/proguard/androidx-annotations.pro'
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(path: ':base')
+    annotationProcessor ext.dependencies['arouter-compiler']
+    annotationProcessor project(path: ':annotationCompiler')
+    implementation project(path: ':login:login_model')
+}

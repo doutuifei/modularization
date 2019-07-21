@@ -1,0 +1,42 @@
+def ext = rootProject.ext
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion ext.android["compileSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion ext.android["minSdkVersion"]
+        targetSdkVersion ext.android["targetSdkVersion"]
+        multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                // 生成的文档路径 : build/generated/source/apt/(debug or release)/com/alibaba/android/arouter/docs/arouter-map-of-${moduleName}.json
+                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api project(path: ':annotationApi')
+    api ext.dependencies['constraint-layout']
+    api ext.dependencies['appcompat-v7']
+    api ext.dependencies['support-v4']
+    api ext.dependencies['recyclerview']
+    api ext.dependencies['multidex']
+    api ext.dependencies['live-event-bus']
+    api ext.dependencies['arouter']
+    api ext.dependencies['greendao']
+    api ext.dependencies['mmkv']
+    api ext.dependencies['okio']
+    api ext.dependencies['fragmentation']
+}

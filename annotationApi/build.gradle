@@ -1,0 +1,31 @@
+def ext = rootProject.ext
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion ext.android["compileSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion ext.android["minSdkVersion"]
+        targetSdkVersion ext.android["targetSdkVersion"]
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            debuggable false
+            minifyEnabled false
+        }
+        lintOptions { abortOnError false }
+    }
+}
+
+dependencies {
+    implementation ext.dependencies['appcompat-v7']
+    api project(path: ':annotation')
+}

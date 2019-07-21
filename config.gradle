@@ -1,0 +1,54 @@
+ext {
+
+    android = [
+            compileSdkVersion: 28,
+            applicationId    : 'com.muzi.modularization',
+            targetSdkVersion : 28,
+            minSdkVersion    : 21,
+            majorCode        : 1,
+            middleCode       : 0,
+            minorCode        : 0,
+            dbVersion        : 1,
+            dbPackage        : 'com.muzi.modularization.greendao'
+    ]
+
+    login = [
+            isApplication: true,
+            applicationId: android.applicationId + '.login',
+            dbVersion    : 1,
+            dbPackage    : android.applicationId + '.login.greendao'
+    ]
+
+    usercenter = [
+            isApplication: false,
+            applicationId: android.applicationId + '.usercenter',
+            dbVersion    : 1,
+            dbPackage    : android.applicationId + '.usercenter.greendao'
+    ]
+
+    dependencies = [
+            "appcompat-v7"     : 'com.android.support:appcompat-v7:28.0.0',
+
+            "support-v4"       : 'com.android.support:support-v4:28.0.0',
+
+            "recyclerview"     : 'com.android.support:recyclerview-v7:28.0.0',
+
+            "constraint-layout": "com.android.support.constraint:constraint-layout:1.1.3",
+
+            "multidex"         : 'com.android.support:multidex:1.0.1',
+
+            "arouter"          : 'com.alibaba:arouter-api:1.4.1',
+            "arouter-compiler" : 'com.alibaba:arouter-compiler:1.2.2',
+
+            "greendao"         : 'org.greenrobot:greendao:3.2.2',
+
+            "mmkv"             : 'com.tencent:mmkv:1.0.22',
+
+            'okio'             : 'com.squareup.okio:okio:2.2.2',
+
+            "live-event-bus"   : 'com.jeremyliao:live-event-bus:1.4.2',
+
+            "fragmentation"    : 'me.yokeyword:fragmentation:1.3.6'
+    ]
+
+}

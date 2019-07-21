@@ -1,0 +1,33 @@
+def ext = rootProject.ext
+apply plugin: 'com.android.library'
+apply plugin: 'org.greenrobot.greendao'
+
+greendao {
+    schemaVersion ext.login['dbVersion']
+    daoPackage ext.login['dbPackage']
+}
+
+android {
+    compileSdkVersion ext.android["compileSdkVersion"]
+
+    defaultConfig {
+        minSdkVersion ext.android["minSdkVersion"]
+        targetSdkVersion ext.android["targetSdkVersion"]
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    resourcePrefix "login_"
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation project(path: ':base')
+    annotationProcessor project(path: ':annotationCompiler')
+}

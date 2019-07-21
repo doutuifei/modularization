@@ -1,0 +1,11 @@
+include ':app',
+        ':base',
+        ':annotationCompiler',
+        ':annotation',
+        ':annotationApi',
+        'user:user_core',
+        'login:login_export',
+        'login:login_model',
+        'login:login_core'
+
+//project(':user_core').projectDir=new File('../usercenter/user_core')
