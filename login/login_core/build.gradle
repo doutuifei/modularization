@@ -1,5 +1,6 @@
 def ext = rootProject.ext
-if (ext.login['isApplication']) {
+def login = ext.login
+if (login['isApplication']) {
     apply plugin: 'com.android.application'
     apply plugin: 'com.alibaba.arouter'
 } else {
@@ -10,8 +11,8 @@ android {
     compileSdkVersion ext.android["compileSdkVersion"]
 
     defaultConfig {
-        if (ext.login['isApplication']) {
-            applicationId ext.login['applicationId']
+        if (login['isApplication']) {
+            applicationId login['applicationId']
         }
         minSdkVersion ext.android["minSdkVersion"]
         targetSdkVersion ext.android["targetSdkVersion"]

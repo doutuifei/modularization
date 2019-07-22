@@ -1,12 +1,19 @@
 package com.muzi.modularization.user.model;
 
+import org.litepal.annotation.Column;
+import org.litepal.crud.LitePalSupport;
+
 /**
  * Author: lipeng
  * Date: 2019/7/21
  * Email: lipeng@moyi365.com
  * Content:
  */
-public class UserBean {
+public class UserBean extends LitePalSupport {
+
+    @Column(unique = true)
+
+    private int id;
 
     private String name;
 
@@ -34,6 +41,14 @@ public class UserBean {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

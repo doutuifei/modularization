@@ -7,7 +7,9 @@
 
     <list>
 
-        <mapping class="com.ekwing.ekw.entity.db.SearchHistoryEntity" />
+        <mapping class="com.muzi.modularization.user.model.UserBean" />
+
+        <mapping class="com.muzi.modularization.login.model.LoginBean" />
 
     </list>
 

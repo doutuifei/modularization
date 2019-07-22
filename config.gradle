@@ -10,19 +10,16 @@ ext {
             minorCode        : 0,
     ]
 
-    db = [
-            dbVersion: 1,
-            dbPackage: 'com.muzi.modularization.greendao'
-    ]
-
     login = [
             isApplication: true,
             applicationId: android.applicationId + '.login',
+            dbVersion: 1
     ]
 
     user = [
             isApplication: false,
             applicationId: android.applicationId + '.user',
+            dbVersion: 1
     ]
 
     dependencies = [

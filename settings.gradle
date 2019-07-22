@@ -8,6 +8,8 @@ include ':app',
         'user:user_model',
         'login:login_export',
         'login:login_model',
-        'login:login_core'
+        'login:login_core',
+        'data:base_data',
+        'data:register_data'
 
 //project(':user_core').projectDir=new File('../usercenter/user_core')

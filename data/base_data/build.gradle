@@ -1,5 +1,4 @@
 def ext = rootProject.ext
-def login = ext.login
 apply plugin: 'com.android.library'
 
 android {
@@ -14,21 +13,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("int", "dbVersion", login['dbVersion'].toString())
-        }
-        debug {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField("int", "dbVersion", login['dbVersion'].toString())
         }
     }
-
-    resourcePrefix "login_"
 
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':base')
-    annotationProcessor project(path: ':annotationCompiler')
+
+    implementation 'com.android.support:appcompat-v7:28.0.0'
 }

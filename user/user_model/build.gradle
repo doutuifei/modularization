@@ -1,4 +1,5 @@
 def ext = rootProject.ext
+def user = ext.user
 apply plugin: 'com.android.library'
 
 android {
@@ -13,6 +14,12 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("int", "dbVersion", user['dbVersion'].toString())
+        }
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("int", "dbVersion", user['dbVersion'].toString())
         }
     }
 

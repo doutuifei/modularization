@@ -1,12 +1,14 @@
 package com.muzi.modularization.login.model;
 
+import org.litepal.crud.LitePalSupport;
+
 /**
  * Author: lipeng
  * Date: 2019/7/18
  * Email: lipeng@moyi365.com
  * Content:
  */
-public class LoginBean {
+public class LoginBean extends LitePalSupport {
 
     private String account;
 

@@ -1,4 +1,5 @@
 def ext = rootProject.ext
+def login = ext.login
 apply plugin: 'com.android.library'
 
 android {
@@ -22,7 +23,7 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    if (!ext.login['isApplication']){
+    if (!login['isApplication']){
         implementation project(path: ':login:login_core')
     }
     implementation project(path: ':datamodule')
