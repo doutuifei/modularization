@@ -1,12 +1,6 @@
 def ext = rootProject.ext
 apply plugin: 'com.android.application'
 apply plugin: 'com.alibaba.arouter'
-apply plugin: 'org.greenrobot.greendao'
-
-greendao {
-    schemaVersion ext.android['dbVersion']
-    daoPackage ext.android['dbPackage']
-}
 
 def applicationVersionCode = getCurrentVersionCode()
 def applicationVersionName = getCurrentVersionName()
@@ -46,7 +40,7 @@ dependencies {
     annotationProcessor ext.dependencies['arouter-compiler']
     annotationProcessor project(path: ':annotationCompiler')
 
-    if (!ext.usercenter['isApplication']) {
+    if (!ext.user['isApplication']) {
         implementation project(path: ':user:user_core')
     }
 }

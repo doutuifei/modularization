@@ -1,15 +1,11 @@
 package com.muzi.modularization.login.model;
 
-import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Generated;
-
 /**
  * Author: lipeng
  * Date: 2019/7/18
  * Email: lipeng@moyi365.com
  * Content:
  */
-@Entity
 public class LoginBean {
 
     private String account;
@@ -23,7 +19,6 @@ public class LoginBean {
     public LoginBean() {
     }
 
-    @Generated(hash = 1457856878)
     public LoginBean(String account, String psd, String uid, String token) {
         this.account = account;
         this.psd = psd;

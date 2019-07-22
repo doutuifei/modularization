@@ -16,8 +16,6 @@ android {
         }
     }
 
-    resourcePrefix "login_"
-
 }
 
 dependencies {

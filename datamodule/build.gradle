@@ -2,6 +2,14 @@ def ext = rootProject.ext
 apply plugin: 'com.android.library'
 apply plugin: 'org.greenrobot.greendao'
 
+apply plugin: 'org.greenrobot.greendao'
+
+greendao {
+    schemaVersion ext.db['dbVersion']
+    daoPackage ext.db['dbPackage']
+    targetGenDir 'src/main/java'
+}
+
 android {
     compileSdkVersion ext.android["compileSdkVersion"]
 
@@ -23,5 +31,6 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation project(path: ':base')
+    api project(path: ':login:login_model')
     annotationProcessor project(path: ':annotationCompiler')
 }

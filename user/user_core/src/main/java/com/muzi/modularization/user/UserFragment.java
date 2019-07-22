@@ -9,8 +9,6 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.muzi.base.constants.RouterConstant;
-import com.muzi.modularization.login.model.LoginBean;
-import com.muzi.modularization.login.model.LoginDao;
 
 import me.yokeyword.fragmentation.SupportFragment;
 
@@ -39,8 +37,5 @@ public class UserFragment extends SupportFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        UserDao.getInstance().getDaoSession().getUserBeanDao().insert(new UserBean("muzi", 20));
-
-        LoginDao.getInstance().getDaoSession().getLoginBeanDao().insert(new LoginBean("1028845", "psd", "asd", "asdasd"));
     }
 }

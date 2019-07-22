@@ -1,8 +1,4 @@
-package com.muzi.modularization.user;
-
-import org.greenrobot.greendao.annotation.Entity;
-import org.greenrobot.greendao.annotation.Keep;
-import org.greenrobot.greendao.annotation.Generated;
+package com.muzi.modularization.user.model;
 
 /**
  * Author: lipeng
@@ -10,7 +6,6 @@ import org.greenrobot.greendao.annotation.Generated;
  * Email: lipeng@moyi365.com
  * Content:
  */
-@Entity
 public class UserBean {
 
     private String name;
@@ -20,7 +15,6 @@ public class UserBean {
     public UserBean() {
     }
 
-    @Keep
     public UserBean(String name, int age) {
         this.name = name;
         this.age = age;

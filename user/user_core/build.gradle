@@ -1,23 +1,16 @@
 def ext = rootProject.ext
-if (ext.usercenter['isApplication']) {
+if (ext.user['isApplication']) {
     apply plugin: 'com.android.application'
 }else {
     apply plugin: 'com.android.library'
-}
-
-apply plugin: 'org.greenrobot.greendao'
-greendao {
-    schemaVersion ext.usercenter['dbVersion']
-    daoPackage ext.usercenter['dbPackage']
-    targetGenDir 'src/main/java'
 }
 
 android {
     compileSdkVersion ext.android["compileSdkVersion"]
 
     defaultConfig {
-        if (ext.usercenter['isApplication']) {
-            applicationId ext.usercenter['applicationId']
+        if (ext.user['isApplication']) {
+            applicationId ext.user['applicationId']
         }
         minSdkVersion ext.android["minSdkVersion"]
         targetSdkVersion ext.android["targetSdkVersion"]
@@ -43,7 +36,7 @@ android {
 
     sourceSets {
         main {
-            if (ext.usercenter['isApplication']) {
+            if (ext.user['isApplication']) {
                 manifest.srcFile 'src/main/AndroidManifest.xml'
             } else {
                 manifest.srcFile 'src/main/manifest/AndroidManifest.xml'
@@ -60,8 +53,8 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':base')
-    implementation project(path: ':login:login_model')
     implementation project(path: ':login:login_export')
+    implementation project(path: ':datamodule')
     annotationProcessor ext.dependencies['arouter-compiler']
     annotationProcessor project(path: ':annotationCompiler')
 }

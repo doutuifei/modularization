@@ -8,22 +8,21 @@ ext {
             majorCode        : 1,
             middleCode       : 0,
             minorCode        : 0,
-            dbVersion        : 1,
-            dbPackage        : 'com.muzi.modularization.greendao'
+    ]
+
+    db = [
+            dbVersion: 1,
+            dbPackage: 'com.muzi.modularization.greendao'
     ]
 
     login = [
             isApplication: true,
             applicationId: android.applicationId + '.login',
-            dbVersion    : 1,
-            dbPackage    : android.applicationId + '.login.greendao'
     ]
 
-    usercenter = [
-            isApplication: true,
+    user = [
+            isApplication: false,
             applicationId: android.applicationId + '.user',
-            dbVersion    : 2,
-            dbPackage    : android.applicationId + '.user.greendao'
     ]
 
     dependencies = [
@@ -48,7 +47,10 @@ ext {
 
             "live-event-bus"   : 'com.jeremyliao:live-event-bus:1.4.2',
 
-            "fragmentation"    : 'me.yokeyword:fragmentation:1.3.6'
+            "fragmentation"    : 'me.yokeyword:fragmentation:1.3.6',
+
+            //litepal
+            "litepal"          : 'org.litepal.android:java:3.0.0',
     ]
 
 }
