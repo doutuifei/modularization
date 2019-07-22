@@ -20,7 +20,6 @@ import me.yokeyword.fragmentation.SupportFragment;
  * Email: lipeng@moyi365.com
  * Content:
  */
-
 @Route(path = RouterConstant.USER_FRAGMENT)
 public class UserFragment extends SupportFragment {
 
@@ -39,8 +38,6 @@ public class UserFragment extends SupportFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-//        Log.e("LoginDao", "fragment-->" + (LoginDao.getInstance().getDaoSession() == null));
-//        Log.e("LoginDao", "fragment-->" + (LoginDao.getInstance().getApplication() == null));
 
         UserDao.getInstance().getDaoSession().getUserBeanDao().insert(new UserBean("muzi", 20));
 
