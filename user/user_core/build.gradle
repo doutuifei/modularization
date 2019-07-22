@@ -9,6 +9,7 @@ apply plugin: 'org.greenrobot.greendao'
 greendao {
     schemaVersion ext.usercenter['dbVersion']
     daoPackage ext.usercenter['dbPackage']
+    targetGenDir 'src/main/java'
 }
 
 android {

@@ -3,7 +3,6 @@ package com.muzi.modularization.user;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,6 +24,12 @@ import me.yokeyword.fragmentation.SupportFragment;
 @Route(path = RouterConstant.USER_FRAGMENT)
 public class UserFragment extends SupportFragment {
 
+    public static SupportFragment getInstance() {
+        SupportFragment fragment = new UserFragment();
+        fragment.setArguments(null);
+        return fragment;
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -34,8 +39,11 @@ public class UserFragment extends SupportFragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        Log.e("LoginDao", "fragment-->" + (LoginDao.getInstance().getDaoSession() == null));
-        Log.e("LoginDao", "fragment-->" + (LoginDao.getInstance().getApplication() == null));
+//        Log.e("LoginDao", "fragment-->" + (LoginDao.getInstance().getDaoSession() == null));
+//        Log.e("LoginDao", "fragment-->" + (LoginDao.getInstance().getApplication() == null));
+
+        UserDao.getInstance().getDaoSession().getUserBeanDao().insert(new UserBean("muzi", 20));
+
         LoginDao.getInstance().getDaoSession().getLoginBeanDao().insert(new LoginBean("1028845", "psd", "asd", "asdasd"));
     }
 }

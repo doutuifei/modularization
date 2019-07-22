@@ -1,30 +1,30 @@
-package com.muzi.modularization.login.model;
+package com.muzi.modularization.user;
 
 import android.app.Application;
 
 import com.muzi.annotation.annotation.RegisterApplication;
 import com.muzi.annotationapi.AbsApplication;
-import com.muzi.modularization.login.greendao.DaoMaster;
-import com.muzi.modularization.login.greendao.DaoSession;
-
+import com.muzi.modularization.login.model.SqlDao;
+import com.muzi.modularization.user.greendao.DaoMaster;
+import com.muzi.modularization.user.greendao.DaoSession;
 
 /**
  * Author: lipeng
- * Date: 2019/7/18
+ * Date: 2019/7/21
  * Email: lipeng@moyi365.com
  * Content:
  */
-@RegisterApplication
-public class LoginDao extends AbsApplication {
+@RegisterApplication(priority = 10)
+public class UserDao extends AbsApplication {
 
-    private static LoginDao instance;
+    private static UserDao instance;
 
     private DaoSession daoSession;
 
-    private LoginDao() {
+    private UserDao() {
     }
 
-    public static LoginDao getInstance() {
+    public static UserDao getInstance() {
         return instance;
     }
 

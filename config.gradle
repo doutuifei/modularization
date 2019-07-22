@@ -20,10 +20,10 @@ ext {
     ]
 
     usercenter = [
-            isApplication: false,
-            applicationId: android.applicationId + '.usercenter',
-            dbVersion    : 1,
-            dbPackage    : android.applicationId + '.usercenter.greendao'
+            isApplication: true,
+            applicationId: android.applicationId + '.user',
+            dbVersion    : 2,
+            dbPackage    : android.applicationId + '.user.greendao'
     ]
 
     dependencies = [
