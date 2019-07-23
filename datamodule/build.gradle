@@ -30,6 +30,5 @@ dependencies {
     implementation project(path: ':base')
     api project(path: ':login:login_model')
     api project(path: ':user:user_model')
-    annotationProcessor ext.dependencies['room-compiler']
     annotationProcessor project(path: ':annotationCompiler')
 }

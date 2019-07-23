@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+
+    <dbname value="data.db" />
+
+    <version value="1" />
+
+    <list>
+        <mapping class="com.muzi.modularization.user.model.UserBean" />
+
+        <mapping class="com.muzi.modularization.login.model.LoginBean" />
+    </list>
+
+</litepal>

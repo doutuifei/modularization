@@ -1,8 +1,7 @@
 package com.muzi.modularization.login.model;
 
-import android.arch.persistence.room.Entity;
-import android.arch.persistence.room.Ignore;
-import android.arch.persistence.room.PrimaryKey;
+import org.litepal.annotation.Column;
+import org.litepal.crud.LitePalSupport;
 
 /**
  * Author: lipeng
@@ -10,10 +9,9 @@ import android.arch.persistence.room.PrimaryKey;
  * Email: lipeng@moyi365.com
  * Content:
  */
-@Entity(tableName = "login_table")
-public class LoginBean {
+public class LoginBean extends LitePalSupport {
 
-    @PrimaryKey(autoGenerate = true)
+    @Column(unique = true)
     private int id;
 
     private String account;
@@ -27,7 +25,6 @@ public class LoginBean {
     public LoginBean() {
     }
 
-    @Ignore
     public LoginBean(String account, String psd, String uid, String token) {
         this.account = account;
         this.psd = psd;
