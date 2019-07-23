@@ -54,7 +54,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':base')
     implementation project(path: ':login:login_export')
-    implementation project(path: ':datamodule')
+    implementation project(path: ':module:data')
     annotationProcessor ext.dependencies['arouter-compiler']
     annotationProcessor project(path: ':annotationCompiler')
 }

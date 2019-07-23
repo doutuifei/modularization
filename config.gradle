@@ -36,8 +36,6 @@ ext {
             "arouter"          : 'com.alibaba:arouter-api:1.4.1',
             "arouter-compiler" : 'com.alibaba:arouter-compiler:1.2.2',
 
-            "greendao"         : 'org.greenrobot:greendao:3.2.2',
-
             "mmkv"             : 'com.tencent:mmkv:1.0.22',
 
             'okio'             : 'com.squareup.okio:okio:2.2.2',
