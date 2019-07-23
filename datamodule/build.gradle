@@ -8,6 +8,11 @@ android {
     defaultConfig {
         minSdkVersion ext.android["minSdkVersion"]
         targetSdkVersion ext.android["targetSdkVersion"]
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
     }
 
     buildTypes {
@@ -25,5 +30,6 @@ dependencies {
     implementation project(path: ':base')
     api project(path: ':login:login_model')
     api project(path: ':user:user_model')
+    annotationProcessor ext.dependencies['room-compiler']
     annotationProcessor project(path: ':annotationCompiler')
 }

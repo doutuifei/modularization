@@ -2,6 +2,7 @@ package com.muzi.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.support.multidex.MultiDex;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.muzi.annotationapi.RegisterApplicationManager;
@@ -17,6 +18,7 @@ public class GlobalApplication extends Application {
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
+        MultiDex.install(this);
     }
 
     @Override

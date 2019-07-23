@@ -2,10 +2,8 @@ package com.muzi.datamodule;
 
 import android.app.Application;
 
-import com.muzi.annotation.annotation.RegisterApplication;
 import com.muzi.annotationapi.AbsApplication;
 
-import org.litepal.LitePal;
 
 /**
  * Author: lipeng
@@ -13,14 +11,13 @@ import org.litepal.LitePal;
  * Email: lipeng@moyi365.com
  * Content:
  */
-@RegisterApplication
-public class LitepalApplication extends AbsApplication {
+//@RegisterApplication
+public class DataApplication extends AbsApplication {
 
     @Override
     public void onCreate(Application application) {
         super.onCreate(application);
         MMKVUtils.init(application);
-        LitePal.initialize(application);
     }
 
 }

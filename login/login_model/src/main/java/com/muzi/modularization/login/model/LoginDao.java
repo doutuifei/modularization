@@ -1,6 +1,8 @@
 package com.muzi.modularization.login.model;
 
-import org.litepal.LitePal;
+import android.arch.persistence.room.Dao;
+import android.arch.persistence.room.Insert;
+import android.arch.persistence.room.Query;
 
 import java.util.List;
 
@@ -10,10 +12,13 @@ import java.util.List;
  * Email: lipeng@moyi365.com
  * Content:
  */
-public class LoginDao {
+@Dao
+public interface LoginDao {
 
-    public List<LoginBean> getAll() {
-        return LitePal.findAll(LoginBean.class);
-    }
+    @Insert
+    void insert(LoginBean... loginBean);
+
+    @Query("SELECT * FROM login_table")
+    List<LoginBean> getAll();
 
 }

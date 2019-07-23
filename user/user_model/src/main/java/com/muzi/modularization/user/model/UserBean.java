@@ -1,7 +1,8 @@
 package com.muzi.modularization.user.model;
 
-import org.litepal.annotation.Column;
-import org.litepal.crud.LitePalSupport;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.PrimaryKey;
 
 /**
  * Author: lipeng
@@ -9,22 +10,32 @@ import org.litepal.crud.LitePalSupport;
  * Email: lipeng@moyi365.com
  * Content:
  */
-public class UserBean extends LitePalSupport {
+@Entity(tableName = "user_table")
+public class UserBean {
 
-    @Column(unique = true)
-
+    @PrimaryKey(autoGenerate = true)
     private int id;
 
     private String name;
 
     private int age;
 
+    private char sex='男';
+
     public UserBean() {
     }
 
+    @Ignore
     public UserBean(String name, int age) {
         this.name = name;
         this.age = age;
+    }
+
+    @Ignore
+    public UserBean(String name, int age, char sex) {
+        this.name = name;
+        this.age = age;
+        this.sex = sex;
     }
 
     public String getName() {
@@ -49,6 +60,24 @@ public class UserBean extends LitePalSupport {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public char getSex() {
+        return sex;
+    }
+
+    public void setSex(char sex) {
+        this.sex = sex;
+    }
+
+    @Override
+    public String toString() {
+        return "UserBean{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", sex=" + sex +
+                '}';
     }
 
 }
