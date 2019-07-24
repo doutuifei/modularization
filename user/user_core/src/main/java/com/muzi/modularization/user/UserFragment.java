@@ -9,8 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.muzi.base.base.BaseFragment;
 import com.muzi.base.constants.RouterConstant;
-import com.muzi.datamodule.DaoDatabase;
+import com.muzi.module.data.DaoDatabase;
 import com.muzi.modularization.login.model.LoginBean;
 import com.muzi.modularization.login.model.LoginDao;
 import com.muzi.modularization.user.model.UserBean;
@@ -27,7 +28,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  * Content:
  */
 @Route(path = RouterConstant.USER_FRAGMENT)
-public class UserFragment extends SupportFragment {
+public class UserFragment extends BaseFragment {
 
     public static SupportFragment getInstance() {
         SupportFragment fragment = new UserFragment();

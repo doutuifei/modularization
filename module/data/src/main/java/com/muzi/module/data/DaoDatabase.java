@@ -1,4 +1,4 @@
-package com.muzi.datamodule;
+package com.muzi.module.data;
 
 import android.content.Context;
 
