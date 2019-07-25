@@ -20,7 +20,7 @@ public class DataApplication extends AbsApplication {
     @Override
     public void onCreate(Application application) {
         super.onCreate(application);
-//        MMKVUtils.init(application);
+//       MMKVUtils.init(application);
         LitePal.initialize(application);
     }
 

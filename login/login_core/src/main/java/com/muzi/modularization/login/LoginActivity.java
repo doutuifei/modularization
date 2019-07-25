@@ -1,9 +1,10 @@
 package com.muzi.modularization.login;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.os.Handler;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.muzi.base.base.BaseActivity;
@@ -13,6 +14,8 @@ import com.muzi.base.constants.RouterConstant;
 public class LoginActivity extends BaseActivity {
 
     private EditText etAccount, etPsd;
+    private ProgressBar progressBar;
+    private Handler handler = new Handler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +23,7 @@ public class LoginActivity extends BaseActivity {
         setContentView(R.layout.login_activity_login);
         etAccount = findViewById(R.id.et_account);
         etPsd = findViewById(R.id.et_psd);
+        progressBar = findViewById(R.id.progressbar);
     }
 
     public void btnLogin(View view) {
@@ -29,6 +33,16 @@ public class LoginActivity extends BaseActivity {
     }
 
     private void login(String account, String psd) {
+        if (progressBar.getVisibility() == View.VISIBLE) {
+            return;
+        }
+        progressBar.setVisibility(View.VISIBLE);
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.GONE);
+            }
+        }, 2000);
 
     }
 

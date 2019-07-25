@@ -11,7 +11,7 @@ ext {
     ]
 
     login = [
-            isApplication: true,
+            isApplication: false,
             applicationId: android.applicationId + '.login',
     ]
 
