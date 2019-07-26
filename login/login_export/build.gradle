@@ -26,5 +26,6 @@ dependencies {
     if (!login['isApplication']){
         implementation project(path: ':login:login_core')
     }
+    implementation project(path: ':base')
     implementation project(path: ':module:data')
 }

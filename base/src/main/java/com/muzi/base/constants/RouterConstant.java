@@ -8,8 +8,6 @@ package com.muzi.base.constants;
  */
 public class RouterConstant {
 
-    public static final String LOGIN_ACTIVITY = "/login/loginActivity";
-
     public static final String STUDY_FRAGMENT = "/study/studyFragment";
 
     public static final String COLLEGE_FRAGMENT = "/college/collegeFragment";
@@ -17,6 +15,5 @@ public class RouterConstant {
     public static final String TRAIN_FRAGMENT = "/train/trainFragment";
 
     public static final String USER_FRAGMENT = "/user/userFragment";
-
 
 }

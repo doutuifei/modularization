@@ -7,10 +7,12 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
+import com.jeremyliao.liveeventbus.LiveEventBus;
 import com.muzi.base.base.BaseActivity;
-import com.muzi.base.constants.RouterConstant;
+import com.muzi.modularization.login.model.LoginEvent;
+import com.muzi.modularization.login.model.LoginRouter;
 
-@Route(path = RouterConstant.LOGIN_ACTIVITY)
+@Route(path = LoginRouter.LOGIN_ACTIVITY)
 public class LoginActivity extends BaseActivity {
 
     private EditText etAccount, etPsd;
@@ -41,8 +43,16 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void run() {
                 progressBar.setVisibility(View.GONE);
+                loginSuccess("1027", "zxczxcc");
             }
         }, 2000);
+    }
+
+    private void loginSuccess(String uid, String token) {
+        LoginData.getInstance().setUid(uid);
+        LoginData.getInstance().setToken(token);
+
+        LiveEventBus.get().with(LoginEvent.LOGIN_EVENT_SUCCESS).post(null);
 
     }
 

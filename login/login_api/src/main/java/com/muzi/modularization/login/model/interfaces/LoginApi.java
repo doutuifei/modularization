@@ -1,4 +1,4 @@
-package com.muzi.modularization.login.interfaces;
+package com.muzi.modularization.login.model.interfaces;
 
 import com.alibaba.android.arouter.facade.template.IProvider;
 

@@ -58,6 +58,6 @@ dependencies {
     implementation project(path: ':base')
     annotationProcessor ext.dependencies['arouter-compiler']
     annotationProcessor project(path: ':annotationCompiler')
-    implementation project(path: ':login:login_model')
+    implementation project(path: ':login:login_api')
     implementation project(path: ':module:data')
 }

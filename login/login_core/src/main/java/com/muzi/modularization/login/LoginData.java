@@ -37,4 +37,9 @@ public class LoginData {
         return token;
     }
 
+    public void clean() {
+        uid = "";
+        token = "";
+    }
+
 }

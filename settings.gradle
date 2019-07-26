@@ -4,10 +4,11 @@ include ':app',
         ':annotation',
         ':annotationApi',
         'module:data',
+        'module:push',
         'user:user_core',
         'user:user_model',
         'login:login_export',
-        'login:login_model',
+        'login:login_api',
         'login:login_core'
 
 

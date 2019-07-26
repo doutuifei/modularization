@@ -1,4 +1,4 @@
-package com.muzi.modularization.login;
+package com.muzi.modularization.login.model;
 
 /**
  * Author: lipeng
@@ -12,7 +12,5 @@ public class LoginEvent {
      * 登录成功
      */
     public static final String LOGIN_EVENT_SUCCESS = "login_event_success";
-
-
 
 }
