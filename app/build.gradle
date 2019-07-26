@@ -40,11 +40,7 @@ dependencies {
     annotationProcessor ext.dependencies['arouter-compiler']
     annotationProcessor project(path: ':annotationCompiler')
 
-//    implementation 'com.ekwing.library:ekwhttp2:0.1.0'
-
-    if (!ext.user['isApplication']) {
-        implementation project(path: ':user:user_core')
-    }
+    implementation project(path: ':user:user_export')
 }
 
 def getCurrentVersionName() {

@@ -14,6 +14,4 @@ public class RouterConstant {
 
     public static final String TRAIN_FRAGMENT = "/train/trainFragment";
 
-    public static final String USER_FRAGMENT = "/user/userFragment";
-
 }

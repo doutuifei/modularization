@@ -44,10 +44,6 @@ ext {
 
             //litepal
             "litepal"             : 'org.litepal.android:java:3.0.0',
-
-            //https://developer.android.google.cn/jetpack/androidx/releases/room
-            "room"                : 'android.arch.persistence.room:runtime:1.1.1',
-            "room-compiler"       : 'android.arch.persistence.room:compiler:1.1.1',
     ]
 
 }

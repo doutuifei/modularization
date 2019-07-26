@@ -9,10 +9,10 @@ import android.view.ViewGroup;
 
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.muzi.base.base.BaseFragment;
-import com.muzi.base.constants.RouterConstant;
 import com.muzi.modularization.login.export.LoginService;
 import com.muzi.modularization.login.model.LoginDao;
 import com.muzi.modularization.user.model.UserDao;
+import com.muzi.modularization.user.model.UserRouter;
 import com.muzi.module.data.DaoDatabase;
 
 import me.yokeyword.fragmentation.SupportFragment;
@@ -23,7 +23,7 @@ import me.yokeyword.fragmentation.SupportFragment;
  * Email: lipeng@moyi365.com
  * Content:
  */
-@Route(path = RouterConstant.USER_FRAGMENT)
+@Route(path = UserRouter.USER_FRAGMENT)
 public class UserFragment extends BaseFragment {
 
     public static SupportFragment getInstance() {

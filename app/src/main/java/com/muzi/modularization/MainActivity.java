@@ -5,6 +5,7 @@ import android.widget.RadioGroup;
 
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.muzi.base.constants.RouterConstant;
+import com.muzi.modularization.user.model.UserRouter;
 
 import me.yokeyword.fragmentation.SupportActivity;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -71,7 +72,7 @@ public class MainActivity extends SupportActivity {
         }
         fragments[2] = trainFragment;
 
-        SupportFragment userFragment = (SupportFragment) ARouter.getInstance().build(RouterConstant.USER_FRAGMENT).navigation();
+        SupportFragment userFragment = (SupportFragment) ARouter.getInstance().build(UserRouter.USER_FRAGMENT).navigation();
         if (userFragment == null) {
             userFragment = EmptyFragment.getInstance("user");
         }

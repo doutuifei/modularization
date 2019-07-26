@@ -19,9 +19,8 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-
     implementation project(path: ':base')
     api project(path: ':login:login_api')
-    api project(path: ':user:user_model')
+    api project(path: ':user:user_api')
     annotationProcessor project(path: ':annotationCompiler')
 }

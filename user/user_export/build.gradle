@@ -1,5 +1,5 @@
 def ext = rootProject.ext
-def login = ext.login
+def user = ext.user
 apply plugin: 'com.android.library'
 
 android {
@@ -17,16 +17,14 @@ android {
         }
     }
 
-    resourcePrefix "login_"
-
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    if (!login['isApplication']){
-        implementation project(path: ':login:login_core')
-    }
-    implementation project(path: ':login:login_api')
     implementation project(path: ':base')
+    if (!user['isApplication']){
+        implementation project(path: ':user:user_core')
+    }
+    api project(path: ':user:user_api')
     implementation project(path: ':module:data')
 }
